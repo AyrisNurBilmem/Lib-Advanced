@@ -53,7 +53,7 @@ const History = ({history}) => {
         
         <Sidebar />
             <h1 className ="all-h1">History</h1>
-            {historyBooks.map((item,index) =>{
+            {historyBooks && historyBooks.map((item,index) =>{
                 return(
                     <HistoryBooks key={index} id ={item} />
                 )

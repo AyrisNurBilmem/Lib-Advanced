@@ -60,7 +60,7 @@ const CheckoutBooks = ({history}) => {
         <Sidebar />
        
             <h1 className ="all-h1">Checkout Books</h1>
-            {booklist.map((item,index) =>{
+            {booklist && booklist.map((item,index) =>{
                 return(
                     <CheckoutEachBook key={index} id ={item} />
                 )

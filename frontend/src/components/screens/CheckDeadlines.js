@@ -84,7 +84,7 @@ const CheckDeadlines = ({history}) => {
            <h1 className="all-h1 deadlines">Check Deadlines</h1> 
 
         
-        { bookDetails.book.map((item,index) =>{
+        {bookDetails && bookDetails.book.map((item,index) =>{
         return(
             
             <CheckDeadlinesEachBook key={index} id = {item} index = {index} borrowDate ={bookDetails.borrow} returnDate = {bookDetails.returnd} overdueFine = {overdueFine}/>

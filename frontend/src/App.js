@@ -1,23 +1,25 @@
-import React from "react"
+import React,{Suspense, lazy} from "react"
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom"
 
-import Private from "./components/routing/Private"
-import PrivateScreen from "./components/screens/PrivateScreen"
-import LoginScreen from "./components/screens/LoginScreen"
-import RegisterScreen from "./components/screens/RegisterScreen"
-import ForgotPasswordScreen from "./components/screens/ForgotPasswordScreen"
-import ResetPasswordScreen from "./components/screens/ResetPasswordScreen"
-import HomePage from "./components/screens/HomePage"
-import CheckoutBooks from "./components/screens/CheckoutBooks"
-import CheckDeadlines from "./components/screens/CheckDeadlines"
-import History from "./components/screens/History"
-import ViewBooks from "./components/screens/ViewBooks"
-import EachBook from "./components/screens/Tools/books/EachBook"
+const Private = lazy(() => import('./components/routing/Private'));
+const PrivateScreen = lazy(() => import('./components/screens/PrivateScreen'));
+const LoginScreen = lazy(() => import('./components/screens/LoginScreen'));
+const RegisterScreen = lazy(() => import('./components/screens/RegisterScreen'));
+const ForgotPasswordScreen = lazy(() => import('./components/screens/ForgotPasswordScreen'));
+const ResetPasswordScreen = lazy(() => import('./components/screens/ResetPasswordScreen'));
+const HomePage = lazy(() => import('./components/screens/HomePage'));
+const CheckoutBooks = lazy(() => import('./components/screens/CheckoutBooks'));
+const CheckDeadlines = lazy(() => import('./components/screens/CheckDeadlines'));
+const History = lazy(() => import('./components/screens/History'));
+const ViewBooks = lazy(() => import('./components/screens/ViewBooks'));
+const EachBook = lazy(() => import('./components/screens/Tools/books/EachBook'));
+const FourOFourPage = lazy(() =>import('./components/screens/FourOFourPage'));
 
 
 function App() {
   return (
     <Router>
+    <Suspense fallback={<div>Loading...</div>}>
       <div className="App">
         <Switch>
           <Route exact path="/login" component={LoginScreen}/>
@@ -31,9 +33,11 @@ function App() {
           <Route exact path="/register" component={RegisterScreen}/>
           <Route exact path="/forgotpassword" component={ForgotPasswordScreen}/>
           <Route exact path="/resetpassword/:resetToken" component={ResetPasswordScreen}/>
+          <Route path = "" component={FourOFourPage}/>
 
         </Switch>
       </div>
+      </Suspense>
     </Router>
   );
 }
