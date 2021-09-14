@@ -74,7 +74,7 @@ const LoginScreen = ({history}) => {
         </div>
         <div className ="split left">
          <div className = "centered">
-            <img className="girl" src ={girl} alt ="girl-img"/>
+            <img className="girl" src ={girl} alt ="girl"/>
          </div>
 
         </div>

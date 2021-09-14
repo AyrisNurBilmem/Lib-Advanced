@@ -98,7 +98,7 @@ const RegisterScreen = ({history}) => {
         </div>
         <div className="split left">
             <div className="centered">
-                <img className="girl" src = {boy} alt="boy-img"/>
+                <img className="girl" src = {boy} alt="boy"/>
             </div>
 
         </div>

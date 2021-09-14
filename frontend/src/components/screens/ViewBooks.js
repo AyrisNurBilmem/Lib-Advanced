@@ -61,7 +61,7 @@ const ViewBooks = ({history}) => {
             <h1 className="all-h1 yourbooks">Your Books</h1>
 
 
-            {booklist.map((item,index) =>{
+            {booklist && booklist.map((item,index) =>{
                 return(
                     <ViewEachBook key={index} id = {item} />
                 )

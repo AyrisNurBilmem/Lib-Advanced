@@ -20,7 +20,7 @@ function SearchArea(props){
               <button className = "search-button" type="submit" onClick = {handleButtonPress}><FiIcons.FiSearch size="21px" /></button>
           </form>
           {buttonPress === false && (<div>
-                <img className = "img-class__search" src = {girl} alt = "girl-img"/>
+                <img className = "img-class__search" src = {girl} alt = "girl"/>
                 <p className ="img-class__text">Search any book you want!</p>
             </div>) }
           

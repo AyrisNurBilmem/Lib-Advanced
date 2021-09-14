@@ -166,33 +166,8 @@ exports.resetpassword =  async (req, res, next) => {
 
 
 exports.getbooks = async (req, res, next) => {
-    //console.log(userEmail);
     res.send(booklist);
     next();
-    /*const {email} = req.body;
-
-    try {
-        const user = await LibraryUser.findOne({email})
-        LibraryUser.find({email}, function(){
-            try {
-                console.log(user);
-                if(user.booksOwned !== [])
-                {user.booksOwned.map(book =>{
-                    res.send(book);
-                    console.log(user.booksOwned);
-                })}
-                else{
-                   res.send("No books yet or no user");
-                }
-            } catch (error) {
-                console.log(error);
-            }
-        }) 
-        
-
-    } catch (error) {
-        console.log(error)
-    }*/
 }
 
 exports.getborrowdate = async (req, res, next) => {
@@ -228,12 +203,12 @@ exports.viewbooks = async (req, res, next) => {
         user.booksOwned.addDate = addDateList;
         user.booksOwned.returnDate = returnDateList;
         user.booksOwned.overdueFine = overdueList;
-        //console.log(user.booksOwned.addDate);
+        
     })
 
     user.save();
 
-    //console.log(userEmail);
+   
 
 
 }
@@ -256,46 +231,15 @@ exports.checkoutbooks = async (req, res, next) =>{
     user.booksOwned.overdueFine = user.booksOwned.overdueFine.filter((item,index) => index !== booklist.indexOf(book));
     user.booksOwned.yourbooks = user.booksOwned.yourbooks.filter(id => id !== book);
     
-    //console.log(booklist.indexOf(book));
-    //console.log(user.booksOwned.addDate);
-    //console.log(user.booksOwned.returnDate);
-
-   //console.log("Books Owned: ", user.booksOwned.yourbooks);
-
-
     user.save();
 
-
-
-
-    //const {book} = req.body;
-    //booklist = booklist.pop(book);
-//
-    //const user = await LibraryUser.findOne({email:userEmail});
-    //LibraryUser.findOne({email:userEmail}, function(){
-    //    user.booksOwned = booklist;
-    //})
-    //user.save();
-//
-    //console.log(booklist);
-    //console.log(user.booksOwned);
 }
 
 exports.history = async (req, res, next) =>{
     const user = await LibraryUser.findOne({email:userEmail});
-
-   // console.log(user);
     LibraryUser.findOne({email:userEmail}, function(){
         res.send(user.checkedOutBooks);
     })
-    //console.log(user);
-   //const user = await LibraryUser({email:userEmail}, function(){
-   //    res.send(user.checkedOutBooks);
-   //})
-//
-   //console.log("History: ", user.checkedOutBooks);
-   //console.log(user);
-   // next();
 }
 
 const sendToken = (user, statusCode, res) =>{
